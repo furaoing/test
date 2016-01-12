@@ -5,6 +5,7 @@
 #include <boost/array.hpp>
 #include "config.h"
 #include <string>
+#include <unistd.h>
 
 using boost::asio::ip::tcp;
 
@@ -18,7 +19,7 @@ std::string make_daytime_string()
 int main() {
     try
     {
-        char buffer[1024];
+        char buffer[4096];
         boost::system::error_code error;
         boost::asio::io_service io_service;
         // create an io_server object
@@ -40,8 +41,9 @@ int main() {
                 else if (error) {
                     throw boost::system::system_error(error);
                 }
+                std::cout << "Bytes Received:" << len << "##" << std::endl;
+                std::cout << buffer << "##" << std::endl;
 
-                std::cout << buffer << std::endl;
                 std::string buffer_str(buffer);
                 boost::asio::write(socket, boost::asio::buffer(buffer_str), error);
             }

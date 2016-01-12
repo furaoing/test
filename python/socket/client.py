@@ -17,10 +17,10 @@ s.connect((host, port))
 print("Connection Established at " + str(host) + "   " + str(port))
 count = 0
 for i in range(1000):
-    test_str = "".join(random.choice(string.ascii_letters) for j in range(5))
+    test_str = "".join(random.choice(string.ascii_letters) for j in range(100))
     s.send(test_str)
     count += len(test_str)
-    time.sleep(0.001)
+    time.sleep(0.01)
 
 print("ALL CHAR Count:" + str(count))
 

@@ -4,24 +4,24 @@
 
 using namespace std;
 
-int main() {
-    int buff_size = 1024;
-    char a[buff_size];
-    a[0] = 'y';
-    a[1] = 'c';
-    //memset(&a+1, 0, buff_size-1);
-    //string my_str("afdfsdf");
+class my_class {
 
-    //my_str.copy(a, buff_size, 0);
-    // a[0] = 'y';
-    int b = 1;
-    int c = b;
-    if (a[0]==0) {
-        cout << "Address of b is:" << a[0] << "###" << endl;
+public:
+    static const int attr = 1;
+    int b;
+    my_class (int a){
+        // constructors has no return value;
+        b = a;
     }
-    cout << "Address of array a (&a) is:" << "fdsff" << endl;
-    sleep(5);
-    cout << "Address of array a (a+1) is:" << "afdf" << endl;
+};
+
+
+int main() {
+
+    //my_class instance = my_class(33);
+
+    cout << my_class::attr << endl;
+
 
 /*
     cout << "Content of a is: " << a << "##" << endl;
